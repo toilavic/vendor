@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+.logo {
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+}
+
+.logoIcon {
+    height: 45px;
+}
+
+.navLinks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 5rem;
+    justify-content: flex-end;
+}
+
+.navLinks:last-child {
+    margin-right: 5rem;
+}
+
+.navElements {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

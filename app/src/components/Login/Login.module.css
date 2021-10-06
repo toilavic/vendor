@@ -1,0 +1,115 @@
+html {
+    height: 100%;
+}
+
+.containerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    /* background-image: url('https://i.imgur.com/4zYB37g.png'); */
+    margin-top: 15rem;
+}
+
+.spanBabel {
+    color: white;
+}
+
+.logoItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(58, 63, 68, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: "museo-slab";
+    font-size: 20px;
+    text-align: center;
+    padding: 40px 40px 0;
+    margin: 0;
+}
+
+.loginItem {
+    color: #ffff;
+    padding: 25px 25px 0;
+    margin: 20px 20px 0;
+    border-radius: 3px;
+}
+
+input {
+    border: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+}
+
+
+.form input[type="password"],
+.form input[type="text"],
+.form input[type="submit"] {
+    width: 100%;
+}
+
+.formLogin label,
+.formLogin input[type="text"],
+.formLogin input[type="password"],
+.formLogin input[type="submit"] {
+    border-radius: 0.25rem;
+    padding: 1rem;
+    color: #3A3F44;
+}
+
+.formLogin label {
+    background-color: #222222;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.formLogin input[type="text"],
+.formLogin input[type="password"] {
+    background-color: #ffffff;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.formLogin input[type="text"]:focus,
+.formLogin input[type="text"]:hover,
+.formLogin input[type="password"]:focus,
+.formLogin input[type="password"]:hover {
+    background-color: #eeeeee;
+}
+
+.formLogin input[type="submit"] {
+    background-color: #41cd52;
+    color: #eee;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.formLogin input[type="submit"]:focus,
+.formLogin input[type="submit"]:hover {
+    background-color: #389243;
+}
+
+.formField {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 2rem;
+}
