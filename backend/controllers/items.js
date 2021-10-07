@@ -20,6 +20,11 @@ itemsRouter.get("/",
 
     const isMine = req.query.isMine;
     const status = req.query.status;
+    // const maxPrice = req.query.maxPrice;
+    // const minPrice = req.query.minPrice;
+
+    // const oPrice = req.query.oPrice; // Must be 'asc' or 'desc'
+    // const oDate = req.query.oDate; // Must be 'asc' or 'desc'
 
     let vendors = await Item.find({}).populate("user", {
       vendors: 0
@@ -30,6 +35,13 @@ itemsRouter.get("/",
     });
 
     if (status) vendors = _.filter(vendors, (vendor) => vendor.status.includes(status));
+
+    // if (maxPrice) vendors = _.filter(vendors, (o) => o.price <= maxPrice);
+    // if (minPrice) vendors = _.filter(vendors, (o) => o.price >= minPrice);
+
+    // if (oPrice) vendors = _.orderBy(vendors, ["price"], [oPrice]);
+    // if (oDate) vendors = _.orderBy(vendors, ["date"], [oDate]);
+
     res.json(vendors);
   });
 
@@ -83,31 +95,15 @@ itemsRouter.put(
 
     const foundItem = await Item.findById(req.params.id);
 
-    const user = await User.findById(decodedToken.id);
-    // for future development
-    const item = new Item({
-      code: foundItem.code,
-      vendorName: foundItem.vendorName,
-      sum: foundItem.sum,
-      currency: foundItem.currency,
-      status: body.status,
-      date: foundItem.date,
-      dueDate: foundItem.dueDate,
-      createAt: foundItem.createAt,
-      user: user._id,
-    });
-
-    const status = body.status
-
     if (foundItem.user.toString() === decodedToken.id) {
-      const updatedItem = await Item.updateOne({
+      await Item.updateOne({
+        "_id": req.params.id
+      }, {
         $set: {
-          status: status
+          "status": body.status
         }
       });
-      res.status(200).json({
-        message: "Edited"
-      });
+      res.send('OK');
     } else {
       res.status(401).json({
         error: "user not allowed to edit this item"
