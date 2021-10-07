@@ -20,11 +20,6 @@ itemsRouter.get("/",
 
     const isMine = req.query.isMine;
     const status = req.query.status;
-    // const maxPrice = req.query.maxPrice;
-    // const minPrice = req.query.minPrice;
-
-    // const oPrice = req.query.oPrice; // Must be 'asc' or 'desc'
-    // const oDate = req.query.oDate; // Must be 'asc' or 'desc'
 
     let vendors = await Item.find({}).populate("user", {
       vendors: 0
@@ -35,12 +30,6 @@ itemsRouter.get("/",
     });
 
     if (status) vendors = _.filter(vendors, (vendor) => vendor.status.includes(status));
-
-    // if (maxPrice) vendors = _.filter(vendors, (o) => o.price <= maxPrice);
-    // if (minPrice) vendors = _.filter(vendors, (o) => o.price >= minPrice);
-
-    // if (oPrice) vendors = _.orderBy(vendors, ["price"], [oPrice]);
-    // if (oDate) vendors = _.orderBy(vendors, ["date"], [oDate]);
 
     res.json(vendors);
   });
